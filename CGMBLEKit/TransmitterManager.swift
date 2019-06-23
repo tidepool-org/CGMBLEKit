@@ -8,7 +8,6 @@
 import HealthKit
 import LoopKit
 import ShareClient
-import os.log
 
 
 public struct TransmitterManagerState: RawRepresentable, Equatable {
@@ -94,7 +93,7 @@ public class TransmitterManager: TransmitterDelegate {
     public let shareManager: ShareClientManager
 
     public let transmitter: Transmitter
-    let log = OSLog(category: "TransmitterManager")
+    let log = DiagnosticLog(category: "TransmitterManager")
 
     public var providesBLEHeartbeat: Bool {
         return dataIsFresh

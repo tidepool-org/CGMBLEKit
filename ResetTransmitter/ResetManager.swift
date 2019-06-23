@@ -6,7 +6,6 @@
 //
 
 import CGMBLEKit
-import os.log
 
 
 class ResetManager {
@@ -38,13 +37,13 @@ class ResetManager {
                 transmitter.resumeScanning()
             }
 
-            os_log("State changed: %{public}@ -> %{public}@", log: log, type: .debug, String(describing: oldValue), String(describing: newValue))
+            log.debug("State changed: %{public}@ -> %{public}@", String(describing: oldValue), String(describing: newValue))
             delegate?.resetManager(self, didChangeStateFrom: oldValue)
         }
     }
     private let lockedState = Locked(State.initialized)
 
-    private let log = OSLog(subsystem: "com.loopkit.CGMBLEKit", category: "ResetManager")
+    private let log = DiagnosticLog(category: "ResetManager")
 
     weak var delegate: ResetManagerDelegate?
 }
@@ -99,7 +98,7 @@ extension ResetManager {
 
 extension ResetManager: TransmitterDelegate {
     func transmitter(_ transmitter: Transmitter, didError error: Error) {
-        os_log("Transmitter error: %{public}@", log: log, type: .error, String(describing: error))
+        log.error("Transmitter error: %{public}@", String(describing: error))
         delegate?.resetManager(self, didError: error)
     }
 
@@ -127,7 +126,7 @@ extension ResetManager: TransmitterCommandSource {
     }
 
     func transmitter(_ transmitter: Transmitter, didFail command: Command, with error: Error) {
-        os_log("Command error: %{public}@", log: log, type: .error, String(describing: error))
+        log.error("Command error: %{public}@", String(describing: error))
         delegate?.resetManager(self, didError: error)
     }
 

@@ -6,10 +6,10 @@
 //
 
 import CoreBluetooth
-import os.log
+import LoopKit
 
 
-private let log = OSLog(category: "PeripheralManager+G5")
+private let log = DiagnosticLog(category: "PeripheralManager+G5")
 
 
 extension PeripheralManager {

@@ -8,7 +8,7 @@
 
 import CoreBluetooth
 import Foundation
-import os.log
+import LoopKit
 
 
 protocol BluetoothManagerDelegate: class {
@@ -62,7 +62,7 @@ class BluetoothManager: NSObject {
 
     weak var delegate: BluetoothManagerDelegate?
 
-    private let log = OSLog(category: "BluetoothManager")
+    private let log = DiagnosticLog(category: "BluetoothManager")
 
     /// Isolated to `managerQueue`
     private var manager: CBCentralManager! = nil

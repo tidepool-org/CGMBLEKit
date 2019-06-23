@@ -9,7 +9,7 @@
 import Foundation
 import CoreBluetooth
 import HealthKit
-import os.log
+import LoopKit
 
 
 public protocol TransmitterDelegate: class {
@@ -87,7 +87,7 @@ public final class Transmitter: BluetoothManagerDelegate {
 
     // MARK: -
 
-    private let log = OSLog(category: "Transmitter")
+    private let log = DiagnosticLog(category: "Transmitter")
 
     private let bluetoothManager = BluetoothManager()
 

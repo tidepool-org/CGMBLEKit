@@ -7,12 +7,12 @@
 
 import CoreBluetooth
 import Foundation
-import os.log
+import LoopKit
 
 
 class PeripheralManager: NSObject {
 
-    private let log = OSLog(category: "PeripheralManager")
+    private let log = DiagnosticLog(category: "PeripheralManager")
 
     ///
     /// This is mutable, because CBPeripheral instances can seemingly become invalid, and need to be periodically re-fetched from CBCentralManager
