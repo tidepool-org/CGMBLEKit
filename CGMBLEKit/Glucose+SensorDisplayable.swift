@@ -66,3 +66,26 @@ extension Glucose: SensorDisplayable {
         return true
     }
 }
+
+// TODO Placeholders. This functionality will come with LOOP-1311
+extension Glucose: CGMManagerStatusReport {
+    public var glucoseValueType: GlucoseValueType? {
+        return nil
+    }
+    
+    public var message: String? {
+        return nil
+    }
+    
+    public var messageType: MessageType? {
+        return nil
+    }
+    
+    public var displayProgress: Bool {
+        return false
+    }
+    
+    public var progressPercentCompleted: Double? {
+        return nil
+    }
+}
