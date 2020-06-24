@@ -100,14 +100,14 @@ public class TransmitterManager: TransmitterDelegate {
         return dataIsFresh
     }
 
-    public var statusReport: CGMManagerStatusReport? {
+    public var sensorState: SensorDisplayable? {
         let transmitterDate = latestReading?.readDate ?? .distantPast
         let shareDate = shareManager.latestBackfill?.startDate ?? .distantPast
 
         if transmitterDate >= shareDate {
             return latestReading
         } else {
-            return shareManager.statusReport
+            return shareManager.sensorState
         }
     }
 
