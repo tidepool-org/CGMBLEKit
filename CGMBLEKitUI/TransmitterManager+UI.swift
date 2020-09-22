@@ -38,10 +38,6 @@ extension G5CGMManager: CGMManagerUI {
     public var cgmLifecycleProgress: DeviceLifecycleProgress? {
         return nil
     }
-    
-    public func glucoseRangeCategory(for glucose: GlucoseSampleValue) -> GlucoseRangeCategory? {
-        return nil
-    }
 }
 
 
@@ -70,11 +66,7 @@ extension G6CGMManager: CGMManagerUI {
     // TODO Placeholder. This functionality will come with LOOP-1311
     public var cgmLifecycleProgress: DeviceLifecycleProgress? {
         return nil
-    }
-    
-    public func glucoseRangeCategory(for glucose: GlucoseSampleValue) -> GlucoseRangeCategory? {
-        return nil
-    }
+    }    
 }
 
 
