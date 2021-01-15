@@ -12,12 +12,29 @@ import LoopKitUI
 import CGMBLEKit
 import ShareClientUI
 
+class TransmitterSettingsNavigationController: SettingsNavigationViewController, GlucoseUnitObserver {
+
+    private var rootViewController: TransmitterSettingsViewController
+
+    init(rootViewController: TransmitterSettingsViewController) {
+        self.rootViewController = rootViewController
+        super.init(rootViewController: rootViewController)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func glucoseUnitDidChange(to glucoseUnit: HKUnit) {
+        rootViewController.glucoseUnitDidChange(to: glucoseUnit)
+    }
+}
 
 class TransmitterSettingsViewController: UITableViewController {
 
     let cgmManager: TransmitterManager & CGMManagerUI
 
-    let glucoseUnit: HKUnit
+    private var glucoseUnit: HKUnit
 
     init(cgmManager: TransmitterManager & CGMManagerUI, glucoseUnit: HKUnit) {
         self.cgmManager = cgmManager
@@ -475,5 +492,12 @@ private extension SettingsTableViewCell {
         } else {
             detailTextLabel?.text = SettingsTableViewCell.NoValueString
         }
+    }
+}
+
+extension TransmitterSettingsViewController: GlucoseUnitObserver {
+    func glucoseUnitDidChange(to glucoseUnit: HKUnit) {
+        self.glucoseUnit = glucoseUnit
+        tableView.reloadData()
     }
 }
