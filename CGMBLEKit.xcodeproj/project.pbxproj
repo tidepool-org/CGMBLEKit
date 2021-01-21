@@ -180,7 +180,6 @@
 		A9AD3822225EEEFB0058C179 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9AD3821225EEEFB0058C179 /* HealthKit.framework */; };
 		A9D99F48225EE99300073DF6 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D99F47225EE99300073DF6 /* HealthKit.framework */; };
 		A9D99F49225EE99A00073DF6 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D99F47225EE99300073DF6 /* HealthKit.framework */; };
-		B4B1176225B2080A006428DE /* TransmitterSettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B1176125B2080A006428DE /* TransmitterSettingsNavigationController.swift */; };
 		B4D40D3823A3ED1500D7ECB5 /* CGMBLEKitG6Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D40D3723A3ED1500D7ECB5 /* CGMBLEKitG6Plugin.swift */; };
 		B4D40D3923A4250000D7ECB5 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4323115E1EFC870300B95E62 /* OSLog.swift */; };
 		B4D40D4A23ABB33500D7ECB5 /* CGMBLEKitG5Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D40D4923ABB33500D7ECB5 /* CGMBLEKitG5Plugin.swift */; };
@@ -490,7 +489,6 @@
 		A9AD381E225EEE850058C179 /* CGMBLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CGMBLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9AD3821225EEEFB0058C179 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		A9D99F47225EE99300073DF6 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		B4B1176125B2080A006428DE /* TransmitterSettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmitterSettingsNavigationController.swift; sourceTree = "<group>"; };
 		B4D40D2E23A3E91800D7ECB5 /* CGMBLEKitG6Plugin.loopplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CGMBLEKitG6Plugin.loopplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D40D3023A3E91800D7ECB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4D40D3623A3ED1500D7ECB5 /* CGMBLEKitG6Plugin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CGMBLEKitG6Plugin-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -674,7 +672,6 @@
 				4379CFEC2110EDB100AADC79 /* TransmitterManagerSetup.storyboard */,
 				4379CFD8210EB3AB00AADC79 /* UIColor.swift */,
 				43A8EC55210D0A7400A81379 /* Info.plist */,
-				B4B1176125B2080A006428DE /* TransmitterSettingsNavigationController.swift */,
 			);
 			path = CGMBLEKitUI;
 			sourceTree = "<group>";
@@ -1330,7 +1327,6 @@
 				4325E9E9210EAED100969CE5 /* TransmitterSettingsViewController.swift in Sources */,
 				4379CFE72110EC5500AADC79 /* TransmitterIDSetupViewController.swift in Sources */,
 				4379CFE52110EBAE00AADC79 /* TransmitterSetupViewController.swift in Sources */,
-				B4B1176225B2080A006428DE /* TransmitterSettingsNavigationController.swift in Sources */,
 				43026D402131C5C600A332E2 /* LocalizedString.swift in Sources */,
 				4325E9EB210EAEE200969CE5 /* IdentifiableClass.swift in Sources */,
 			);
