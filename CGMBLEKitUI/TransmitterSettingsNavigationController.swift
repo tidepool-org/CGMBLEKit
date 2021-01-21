@@ -11,7 +11,7 @@ import HealthKit
 import LoopKit
 import LoopKitUI
 
-class TransmitterSettingsNavigationController: SettingsNavigationViewController, GlucoseUnitObserver {
+class TransmitterSettingsNavigationController: SettingsNavigationViewController, PreferredGlucoseUnitObserver {
 
     private var rootViewController: TransmitterSettingsViewController
 
@@ -24,7 +24,7 @@ class TransmitterSettingsNavigationController: SettingsNavigationViewController,
         fatalError("init(coder:) has not been implemented")
     }
 
-    func glucoseUnitDidChange(to glucoseUnit: HKUnit) {
-        rootViewController.glucoseUnitDidChange(to: glucoseUnit)
+    func preferredGlucoseUnitDidChange(to preferredGlucoseUnit: HKUnit) {
+        rootViewController.preferredGlucoseUnitDidChange(to: preferredGlucoseUnit)
     }
 }

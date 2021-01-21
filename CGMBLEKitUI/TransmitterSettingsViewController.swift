@@ -477,9 +477,9 @@ private extension SettingsTableViewCell {
     }
 }
 
-extension TransmitterSettingsViewController: GlucoseUnitObserver {
-    func glucoseUnitDidChange(to glucoseUnit: HKUnit) {
-        self.glucoseUnit = glucoseUnit
+extension TransmitterSettingsViewController: PreferredGlucoseUnitObserver {
+    func preferredGlucoseUnitDidChange(to preferredGlucoseUnit: HKUnit) {
+        self.glucoseUnit = preferredGlucoseUnit
         tableView.reloadData()
     }
 }
