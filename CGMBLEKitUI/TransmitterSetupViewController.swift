@@ -32,8 +32,8 @@ class TransmitterSetupViewController: UINavigationController, CGMManagerCreateNo
 
     func completeSetup(state: TransmitterManagerState) {
         if let manager = cgmManagerType.init(state: state) as? CGMManagerUI {
-            cgmManagerCreateDelegate?.cgmManagerCreateNotifying(self, didCreateCGMManager: manager)
-            cgmManagerOnboardDelegate?.cgmManagerOnboardNotifying(self, didOnboardCGMManager: manager)
+            cgmManagerCreateDelegate?.cgmManagerCreateNotifying(didCreateCGMManager: manager)
+            cgmManagerOnboardDelegate?.cgmManagerOnboardNotifying(didOnboardCGMManager: manager)
             completionDelegate?.completionNotifyingDidComplete(self)
         }
     }
