@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftUI
+import Combine
 import HealthKit
 import LoopKit
 import LoopKitUI
@@ -16,7 +18,9 @@ class TransmitterSettingsViewController: UITableViewController {
 
     let cgmManager: TransmitterManager & CGMManagerUI
 
-    private let displayGlucoseUnitObservable: DisplayGlucoseUnitObservable
+    @ObservedObject private var displayGlucoseUnitObservable: DisplayGlucoseUnitObservable
+
+    private var cancellable: AnyCancellable?
 
     private var glucoseUnit: HKUnit {
         displayGlucoseUnitObservable.displayGlucoseUnit
@@ -29,6 +33,14 @@ class TransmitterSettingsViewController: UITableViewController {
         super.init(style: .grouped)
 
         cgmManager.addObserver(self, queue: .main)
+
+        cancellable = displayGlucoseUnitObservable.updatePublisher.sink { [weak self] in
+            guard let strongSelf = self else {
+                return
+            }
+
+            strongSelf.tableView.reloadData()
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
