@@ -18,7 +18,7 @@ class TransmitterSettingsViewController: UITableViewController {
 
     let cgmManager: TransmitterManager & CGMManagerUI
 
-    @ObservedObject private var displayGlucoseUnitObservable: DisplayGlucoseUnitObservable
+    private let displayGlucoseUnitObservable: DisplayGlucoseUnitObservable
 
     private var cancellable: AnyCancellable?
 
