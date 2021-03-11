@@ -16,11 +16,15 @@ class TransmitterSettingsViewController: UITableViewController {
 
     let cgmManager: TransmitterManager & CGMManagerUI
 
-    private var glucoseUnit: HKUnit
+    private let displayGlucoseUnitObservable: DisplayGlucoseUnitObservable
 
-    init(cgmManager: TransmitterManager & CGMManagerUI, glucoseUnit: HKUnit) {
+    private var glucoseUnit: HKUnit {
+        displayGlucoseUnitObservable.displayGlucoseUnit
+    }
+
+    init(cgmManager: TransmitterManager & CGMManagerUI, displayGlucoseUnitObservable: DisplayGlucoseUnitObservable) {
         self.cgmManager = cgmManager
-        self.glucoseUnit = glucoseUnit
+        self.displayGlucoseUnitObservable = displayGlucoseUnitObservable
 
         super.init(style: .grouped)
 
@@ -363,7 +367,7 @@ class TransmitterSettingsViewController: UITableViewController {
         case .share:
             switch ShareRow(rawValue: indexPath.row)! {
             case .settings:
-                let vc = ShareClientSettingsViewController(cgmManager: cgmManager.shareManager, glucoseUnit: glucoseUnit, allowsDeletion: false)
+                let vc = ShareClientSettingsViewController(cgmManager: cgmManager.shareManager, displayGlucoseUnitObservable: displayGlucoseUnitObservable, allowsDeletion: false)
                 show(vc, sender: nil)
                 return // Don't deselect
             case .openApp:
@@ -474,12 +478,5 @@ private extension SettingsTableViewCell {
         } else {
             detailTextLabel?.text = SettingsTableViewCell.NoValueString
         }
-    }
-}
-
-extension TransmitterSettingsViewController: PreferredGlucoseUnitObserver {
-    func preferredGlucoseUnitDidChange(to preferredGlucoseUnit: HKUnit) {
-        self.glucoseUnit = preferredGlucoseUnit
-        tableView.reloadData()
     }
 }
