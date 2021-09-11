@@ -71,3 +71,9 @@ extension Glucose: GlucoseDisplayable {
         return nil
     }
 }
+
+extension Glucose {
+    public var condition: GlucoseCondition? {
+        return nil
+    }
+}
