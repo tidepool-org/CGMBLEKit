@@ -74,6 +74,12 @@ extension Glucose: GlucoseDisplayable {
 
 extension Glucose {
     public var condition: GlucoseCondition? {
-        return nil
+        if glucoseMessage.glucose < GlucoseLimits.minimum {
+            return .belowRange
+        } else if glucoseMessage.glucose > GlucoseLimits.maximum {
+            return .aboveRange
+        } else {
+            return nil
+        }
     }
 }
